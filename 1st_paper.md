@@ -63,4 +63,10 @@ Transformer는 충분한 규모로 사전 학습되고 더 적은 데이터로 f
 - 각 유명한 benchmark에서 ImageNet에서 88.3%, CIFAR-100에서 94.55% 등의 성능으로 SoTA에 접근하거나 이를 능가하는 결과 
 
 ## Method
+### ViT(Vision Transformer)
 
+![image](https://user-images.githubusercontent.com/72767245/104024839-14ac0a80-5207-11eb-8de4-126939970c79.png)
+
+#### Input Image
+#### Architecture
+#### Pre-trained & fine-tuning
