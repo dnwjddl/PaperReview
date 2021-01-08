@@ -91,7 +91,12 @@ Transformer의 Encoder부분과 동일(즉, BERT)
 
 ![image](https://user-images.githubusercontent.com/72767245/104045210-8b560180-5221-11eb-8522-2c6fa43318b8.png)
 
-여기서 혹시 위치 엔코딩의 Epos의 식에서 같이 N이 아닌 (N+1)로 되어 있는 것을 알아차린 사람들이 있을지도 모른다.이것은 E에 입력한 후에 입력의 맨 부분에 [CLS] 토큰을 연결하기 때문이다. 이것은 BERT와 완전히 동일하다. 다시 말해, [CLS] 토큰에 위치 엔코딩을 더하기 때문에 "패치 + [CLS] = N + 1"이 되는 것이다.  
+[CLS] 토큰에 위치 엔코딩을 더하기 때문에 "패치 + [CLS] = N + 1"이 된다. E를 입력한 후에 입력의 맨 앞부분에 [CLS] 토큰 연결 (BERT와 동일)  
+✔ BERT 내의 [CLS]
+- 모든 Sentence의 첫번째 token은 언제나 [CLS]이다.  
+- [CLS] token은 transformer 전체 층을 다 거치고 나면 token sequence의 결합된 의미를 가지게 되는데, 여기에 **간단한 classifier를 붙이면 단일 문장, 또는 연속된 문장의 classification을 쉽게 할 수 있음**. (classification task가 아니면 무시 가능)
+
+
 <br><br>식(2)는 Multi-head Attention을 표시하는 것이고 식(3)은 MLP를 나타내는 것. 식(4)에서 z0L는 최종 단계의 출력에 있어서 이전부터 0번째의 벡터 표현이므로 (즉, [cls] token 의 최종 출력) 이것을 LN에 넣어 y를 얻어냄. MLP 헤드 자체의 식은 논문에 나오지 않지만 후에 이 y를 MLP에 넣는 것으로 최종적인 예측까지 나오는 것 같다.
 
 ##### Hybrid Architecture
