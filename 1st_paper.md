@@ -81,10 +81,34 @@ Transformer의 Encoder부분과 동일(즉, BERT)
 - ```GELU```: MLP는 2단으로 활성화 함수로 GELU를 채용(Original은 ReLU를 사용)
 <br><br>
 
-
 ![image](https://user-images.githubusercontent.com/72767245/104044958-374b1d00-5221-11eb-9dd4-3729f843308a.png)
 ![image](https://user-images.githubusercontent.com/72767245/104044968-3a460d80-5221-11eb-98f8-a8d703d720ce.png)
 
-- 
+![image](https://user-images.githubusercontent.com/72767245/104045189-842ef380-5221-11eb-8080-0d6846bc8321.png)
+
+- Transformer Encoder는 Multi-headed self-attention 및 MLP block으로 구성된다
+- Layer Norm(LN)은 모든 block 이전에 적용되고 residual connection은 모든 block 이후에 적용됨
+
+![image](https://user-images.githubusercontent.com/72767245/104045210-8b560180-5221-11eb-8522-2c6fa43318b8.png)
+
+여기서 혹시 위치 엔코딩의 Epos의 식에서 같이 N이 아닌 (N+1)로 되어 있는 것을 알아차린 사람들이 있을지도 모른다.이것은 E에 입력한 후에 입력의 맨 부분에 [CLS] 토큰을 연결하기 때문이다. 이것은 BERT와 완전히 동일하다. 다시 말해, [CLS] 토큰에 위치 엔코딩을 더하기 때문에 "패치 + [CLS] = N + 1"이 되는 것이다.  
+<br><br>식(2)는 Multi-head Attention을 표시하는 것이고 식(3)은 MLP를 나타내는 것. 식(4)에서 z0L는 최종 단계의 출력에 있어서 이전부터 0번째의 벡터 표현이므로 (즉, [cls] token 의 최종 출력) 이것을 LN에 넣어 y를 얻어냄. MLP 헤드 자체의 식은 논문에 나오지 않지만 후에 이 y를 MLP에 넣는 것으로 최종적인 예측까지 나오는 것 같다.
+
+##### Hybrid Architecture
+이미지를 patch로 나누는 대신 ResNet의 중간 feature map에서 input sequence를 형성할 수 있다.  
+Hybrid Model에서 patch embedding projection E(식1)은 ResNet의 early stage로 대체됨  
+ResNet의 중간 2D feature map 중 하나는 sequence로 flatten되고 transformer dimension에 projection된 다음 transformer의 input sequence로 feed 됨  
+Classification input embedding 및 position embedding은 위에서 설명한 대로 transformer에 대한 input에 추가됨
 
 #### Pre-trained & fine-tuning
+Fine-Tuning: ViT의 MLP head를 대체한다. 이 외에 세 부분정도 아이디어를 더함
+- pre-train시에 해상도(e.g 224)보다도 fine-tuning시의 해상도를 높게(e.g 384) 한다.
+- patch의 크기는 pre-train 과 fine-tuning 둘 다 일정(즉, fine-tuning시에는 해상도가 높으므로 patch의 수가 증가)
+- pre-train에서 학습된 position Encoding을 fine-tuning 에서 부족한 부분에 삽입하여 보완한다.  
+
+
+이를 위해 pre-train 된 prediction head 를 제거하고 0으로 초기화 된 D x K feedforward layer 를 연결한다. 여기서 K 는 downstream class 의 수를 뜻한다. pre-train 보다 높은 해상도로 fine-tuning 을 하는 것이 성능에 도움이 된다.   
+
+더 높은 해상도의 이미지가 주어질 때 패치 크기를 동일하게 유지하게 되므로 유효한 시퀀스 길이가 더 커지게 된다. Vision Transformer 는 임의의 시퀀스 길이(up to memory constraint)를 처리 할 수 있지만 pre-train 된 position embedding 은 더 이상 의미가 없기 때문에 원본 이미지에서의 position 에 따라 pre-train 된 position embedding의 2D interpolation 을 수행한다. 이러한 해상도 조정 및 패치 추출은 이미지의 2D 구조에 대한 inductive bias 가 Vision Transformer 에 수동으로 적용되는 유일한 지점이라고 할 수 있다. 
+
+## Experiments
