@@ -71,4 +71,16 @@ Transformer는 충분한 규모로 사전 학습되고 더 적은 데이터로 f
 ![image](https://user-images.githubusercontent.com/72767245/104028021-8b4b0700-520b-11eb-9e27-bcc5db5596e8.png)
 
 #### Architecture
+Transformer의 Encoder부분과 동일(즉, BERT)  
+
+![image](https://user-images.githubusercontent.com/72767245/104028678-5b503380-520c-11eb-852d-84e6f2e89439.png)
+
+기존의 Encoder과 다른점 두가지
+
+- ```Pre-Norm```: Norm이 Multi-Head Attention/MLP 전에 위치(* Norm은 Layer Normalization(=LM) 의미)
+- ```GELU```: MLP는 2단으로 활성화 함수로 GELU를 채용(Original은 ReLU를 사용)
+<br><br>
+- Transformer는 모든 layer를 일정한 width를 사용하므로 학습가능한 linear projection은 각 vectorized patch를 dimension D에 mapping하며, 그 결과를 patch embedding이라고함
+- ```Position Embedding```은 위치 정보를 유지하기 위해 ```patch Embedding```에 더해짐
+
 #### Pre-trained & fine-tuning
