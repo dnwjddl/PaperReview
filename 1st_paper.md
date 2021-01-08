@@ -68,5 +68,7 @@ Transformer는 충분한 규모로 사전 학습되고 더 적은 데이터로 f
 ![image](https://user-images.githubusercontent.com/72767245/104024839-14ac0a80-5207-11eb-8de4-126939970c79.png)
 
 #### Input Image
+![image](https://user-images.githubusercontent.com/72767245/104028021-8b4b0700-520b-11eb-9e27-bcc5db5596e8.png)
+
 #### Architecture
 #### Pre-trained & fine-tuning
