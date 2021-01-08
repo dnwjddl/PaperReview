@@ -14,3 +14,9 @@ https://arxiv.org/pdf/2010.11929.pdf
 - 이 논문은 위치별 출력 정보를 명시적으로 활용하기 위해 기존 컨볼루션 피쳐맵 위에 새로운 spatial output layer 를 제안한다.
 
 https://arxiv.org/pdf/2004.07570.pdf
+
+## GAN(Generative Adversarial Network)
+
+## Object Detection
+
+## Image Segmentation
