@@ -49,14 +49,18 @@ large-scale image recognition task에서 ResNet-like architecture는 여전히 S
 
 ### IN THIS PAPER
 NLP의 Transformer 모델 수정을 최소화, 표준 Transformer를 이미지에 직접 적용해보는 실험을 시도
- - image를 patch로 분할
+ - image를 patch로 분할 (image patch는 NLP에서 token(word)와 동일한 방식)
  - patch의 linear embedding sequence를 Transformer에 대한 입력으로 feed
-   - 이미지 패치는 NLP에서 token(word)와 동일한 방식으로 처리
  - supervised learning 이미지 분류에 대한 모델을 학습
- - 이러한 모델은 중간규모(mid-sized)의 ImageNet과 같은 데이터셋에서 학습할 때 적용한 결과를 산출하여 비슷한 크기의 ResNet보다 몇퍼센트 낮은 정확도를 달성
-- 이는 equivariance 및 locality 즉, CNN 고유의 inductive bias를 고려할 수 있는 기능이 transformer에 없기 때문에 불충분한 양의 데이터에 대해 학습할 때 일반화가 잘안된다는 문제가 있음
+ 
+#### mid sized Dataset
+mid sized Dataset(ImageNet)에서 학습할때 비슷한 크기의 ResNet보다 몇퍼센트 낮은 정확도를 달성  
+Transformer는 translation equivariance 및 locality와 같은 CNN 고유의 inductive bias를 고려할 수 없기 때문에 불충분한 양의 data에 대해 학습할 때 일반화가 잘 되지 않는 문제점
 
-- **large-scale Dataset**(14M-300M Images)
-  - 엄청 대규모의 Dataset으로 학습하게 된다면 inductive bias를 능가할 수 있다는 결론이 나옴
-  - 즉, 충분한 규모로 사전 학습되고 더 적은 데이터로 fine tuning 할 때 좋은 결과를 얻을 수 있다는 것
-    - 각 유명한 benchmark에서 ImageNet에서 88.3%, CIFAR-100에서 94.55% 등의 성능으로 SoTA에 접근하거나 이를 능가하는 결과 
+#### **large-scale Dataset**(14M-300M Images)
+대규모의 Dataset으로 학습을 하면 ```inductive bias```능가 가능  
+Transformer는 충분한 규모로 사전 학습되고 더 적은 데이터로 fine tuning 할 때 좋은 결과를 얻을 수 있음
+- 각 유명한 benchmark에서 ImageNet에서 88.3%, CIFAR-100에서 94.55% 등의 성능으로 SoTA에 접근하거나 이를 능가하는 결과 
+
+## Method
+
