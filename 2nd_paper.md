@@ -44,7 +44,7 @@
 ### 제안하는 바
 #### 구조
 - ```Spatially Attentive Output Layer(SAOL)``` 이라는 새로운 출력 모듈을 사용하여 유용한 self-supervised을 적용할 뿐만 아니라 명시적이고 보다 정밀한 spatial logits 을 생성할 것을 제안한다
-
+![image](https://user-images.githubusercontent.com/72767245/104767953-447f8300-57b0-11eb-996b-53f7dc46f133.png)
 #### 두가지 출력
 - 구체적으로 feature map에서 ```spatial logits```(location-specific class responses)과 ```spatial attention map```을 별도로 얻음
 
@@ -66,6 +66,8 @@
 - 다양한 최첨단 CNN을 통해 CIFAR-10/100 및 ImageNet의 분류 작업에 대한 광범위한 실험을 수행하였으며, self-supervised 및 self-distillation기능을 갖춘 SAOL이 지속적으로 성능을 향상시킬 뿐 아니라 목표 개체의 보다 정확한 localization 결과를 생성한다는 것을 관찰할 수 있다.
   
 #### MAIN contribution
+
+![image](https://user-images.githubusercontent.com/72767245/104768017-552ff900-57b0-11eb-93f8-0473dc6b69f7.png)
 
 ## Related Works
 ### Class Activation Mapping
