@@ -42,25 +42,27 @@
 ### Image Classification에서 자주 사용되는 Localized class-specific responses의 세가지 이점
 ### 기존 방식(공간 logits와 attention map)에 대한 단점 및 설명
 ### 제안하는 바
-<구조>
+#### 구조
 - ```Spatially Attentive Output Layer(SAOL)``` 이라는 새로운 출력 모듈을 사용하여 유용한 self-supervised을 적용할 뿐만 아니라 명시적이고 보다 정밀한 spatial logits 을 생성할 것을 제안한다
-<두가지 출력>
+
+#### 두가지 출력
 - 구체적으로 feature map에서 ```spatial logits```(location-specific class responses)과 ```spatial attention map```을 별도로 얻음
-<Spatial logits>
+
+#### Spatial logits
 - weighted sum of the spatial logits에 Attention weights을 사용하여 분류 결과를 도출
 - 제안된 출력 process는 대상 클래스 영역에 선택적으로 초점을 맞추기 위해 spatial logits에 대한 weighted average pooling으로 간주할 수 있음
 - 보다 정확한 spatial logits들을 위해, 우리는 sematic segmentation에 사용되는 decoder 모듈에서 영감을 받은 multi-scale spatial logits aggregate 하다.
 - SAOL은 공간적으로 해석 가능한 spatial outputs을 직접 생성할 수 있으며 post processing 없이 foward propagation중에서 대상 객체 위치를 지정 가능
 - 게다가 제안된 SAOL의 계산 비용과 매개 변수의 수는 이전의 GAP-FC 기반 출력 계층과 거의 같음
-<손실함수1>
+#### 손실함수1
 - 일반화 능력을 향상 시키기 위해 CutMix에 기초한 두가지 새로운 location-specific self supervised losses 적용
 - 우리는 결합된 입력 패치의 영역에 비례하여 ground truth image label을 혼합하는 CutMix와 달리, 
    - 제안된 self-supervised은 혼합 입력에 따른 self-annotated spatial labels의 절단 및 붙여넣기를 활용한다
 - 제안된 손실은 우리의 spatial logits과 attention map을 더 완전하고 정확하게 만든다
-<기존과 합친 손실함수2>
+#### 기존과 합친 손실함수2
 - 기존의 GAP-FC와 SAOL을 연결하고 SAOL 로고를 GAP-FC에 distilling 하여 self-distillation을 탐구함
 - 이 기술은 test time에 아키텍처를 변경하지 않고도 기존 CNN의 성능을 향상시킬 수 있음
-<확인>
+#### 검증
 - 다양한 최첨단 CNN을 통해 CIFAR-10/100 및 ImageNet의 분류 작업에 대한 광범위한 실험을 수행하였으며, self-supervised 및 self-distillation기능을 갖춘 SAOL이 지속적으로 성능을 향상시킬 뿐 아니라 목표 개체의 보다 정확한 localization 결과를 생성한다는 것을 관찰할 수 있다.
   
 #### MAIN contribution
