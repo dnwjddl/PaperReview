@@ -110,7 +110,7 @@
   - Cut-Mixed 영상, Spatial attention map, heatmap of output logit for top-2 class
   - (a) 이전 CutMix 모델이 상위 2개 클래스의 점수로 개체를 정확하게 예측하지 못한 예
   - (b) 이전 CutMix 모델이 작은 물체를 지나치게 자신있게 예측한 예
-
+![image](https://user-images.githubusercontent.com/72767245/104770740-67ac3180-57b4-11eb-867a-143dd8e0b9fc.png)
 
 ## Conclusion
 - ```Spatially Attentive Output Layer``` 출력 계층
