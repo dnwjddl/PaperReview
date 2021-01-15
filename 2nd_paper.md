@@ -98,6 +98,20 @@
 - 우리는 End-to-end 방식으로 제안된 self-distillation loss을 통해 ```SAOL```과 ```GAP-FC```기반 출력 레이어를 동시에 훈련
 - Test에서 ```SAOL``` 또는 ```GAP-FC``` 기반 출력 레이어에 의한 분류 결과를 얻음
 
+### WSOL
+- SAOL에 의한 spatial Attetion map을 평가하기 위해, 우리는 WSOL의 작업에 대해 ResNet-50 모델을 사용한 실험을 수행
+- 기존 WSOL 방법의 평가 전략을 따름
+- WSOL의 일반적인 방법은 최소-최대 정규화를 사용하여 점수 맵을 정규화하여 0과 1사이에 있도록 하는 것
+- 정규화된 출력 점수 맵은 임계값으로 이진화될 수 있으며, 그런 다음 이진 마스크에서 가장 큰 연결된 영역이 선택됨
+- 우리의 모델은 Spatial Attention map와 spatial logits의 공간 해상도를 7x7 에서 14x14로 확대하기 위해 수정되었고 미세 조정된 ImageNet훈련 모델이 되었다.
+- 획득한 Spatial Attention Map과 Spatial logits은 요소별 산출물로 결합되어 클래스별 Spatial Attention map을 산출
+
+- ResNet-50을 사용한 SAOL에 의한 Attention map의 Qualitative한 분석
+  - Cut-Mixed 영상, Spatial attention map, heatmap of output logit for top-2 class
+  - (a) 이전 CutMix 모델이 상위 2개 클래스의 점수로 개체를 정확하게 예측하지 못한 예
+  - (b) 이전 CutMix 모델이 작은 물체를 지나치게 자신있게 예측한 예
+
+
 ## Conclusion
 - ```Spatially Attentive Output Layer``` 출력 계층
 - ```Spatial Attention Map```&```Spatial Logits```
