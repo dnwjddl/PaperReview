@@ -99,10 +99,10 @@
 - Test에서 ```SAOL``` 또는 ```GAP-FC``` 기반 출력 레이어에 의한 분류 결과를 얻음
 
 ## Conclusion
-우리는 ```Spatially Attentive Output Layer```라는 이미지 분류를 위한 새로운 출력 계층을 제안 
-```Spatial Attention map```과 ```Spatial logits```이라는 새로운 두가지 분기의 출력은 Attention mechanism을 통해 분류 출력을 생성  
-제안된 ```SAOL```은 거의 동일한 계산비용으로 다양한 작업에 대한 대표적인 아키텍처의 성능을 향상시킴  
-또한 ```SAOL```을 위해 특별히 설계된 추가적인 self-supervised loss도 성능을 향상 시킴  
-```SAOL```에 의해 생성된 attention map과 spatial logits은 WSOL에 사용될 수 있으며, WSOL 작업 뿐만 아니라 해석 가능한 네트워크에 대해서도 유망한 결과  
-우리는 이미지 분류 작업을 위한 더 나은 디코더와 같은 출력구조를 개발하고 인간 노동 없이 self-annotated spatial information의 더 정교한 사용을 탐구하기 위해 연구를 진행 할 것
+우리는 ```Spatially Attentive Output Layer```라는 이미지 분류를 위한 새로운 출력 계층을 제안   
+```Spatial Attention map```과 ```Spatial logits```이라는 새로운 두가지 분기의 출력은 Attention mechanism을 통해 분류 출력을 생성    
+제안된 ```SAOL```은 거의 동일한 계산비용으로 다양한 작업에 대한 대표적인 아키텍처의 성능을 향상시킴   
+또한 ```SAOL```을 위해 특별히 설계된 추가적인 self-supervised loss도 성능을 향상 시킴    
+```SAOL```에 의해 생성된 attention map과 spatial logits은 WSOL에 사용될 수 있으며, WSOL 작업 뿐만 아니라 해석 가능한 네트워크에 대해서도 유망한 결과    
+우리는 이미지 분류 작업을 위한 더 나은 디코더와 같은 출력구조를 개발하고 인간 노동 없이 self-annotated spatial information의 더 정교한 사용을 탐구하기 위해 연구를 진행 할 것  
 
