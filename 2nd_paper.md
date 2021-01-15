@@ -87,4 +87,22 @@
 몇가지 최근 연구는 Attention map을 사용하여 auxiliary self-supervised losses을 도출  
 이러한 Attention-guided self-supervised leaning mehtod와 달리, 우리는 CutMix를 활용하여 더 정교한 위치별 self-supervised을 설계
 
+## Experiment
+```self-supervised``` 및 ```self distillation```을 통해 SAOL을 이전 방법들과 비교하여 평가  
+
+- 4.1 절에서는 여러 분류 작업에 대한 제안된 방법의 효과를 연구 (CIFAR-10/100 & ImageNet Classification & ablation Study)
+- 4.2 절에서는 획득한 Attention Map에 대한 정량적 평가를 실시하기 위하여 WSOL 실험을 수행    
+  
+- 모든 실험을 Pytorch에서 공식 CutMix 소스코드를 수정하여 구현
+- 공정한 비교를 위해, 우리는 CutMix 및 ABN과 같은 기준선에서 하이퍼파라미터를 변경하지 않으려고 노력
+- 우리는 End-to-end 방식으로 제안된 self-distillation loss을 통해 ```SAOL```과 ```GAP-FC```기반 출력 레이어를 동시에 훈련
+- Test에서 ```SAOL``` 또는 ```GAP-FC``` 기반 출력 레이어에 의한 분류 결과를 얻음
+
+## Conclusion
+우리는 ```Spatially Attentive Output Layer```라는 이미지 분류를 위한 새로운 출력 계층을 제안 
+```Spatial Attention map```과 ```Spatial logits```이라는 새로운 두가지 분기의 출력은 Attention mechanism을 통해 분류 출력을 생성  
+제안된 ```SAOL```은 거의 동일한 계산비용으로 다양한 작업에 대한 대표적인 아키텍처의 성능을 향상시킴  
+또한 ```SAOL```을 위해 특별히 설계된 추가적인 self-supervised loss도 성능을 향상 시킴  
+```SAOL```에 의해 생성된 attention map과 spatial logits은 WSOL에 사용될 수 있으며, WSOL 작업 뿐만 아니라 해석 가능한 네트워크에 대해서도 유망한 결과  
+우리는 이미지 분류 작업을 위한 더 나은 디코더와 같은 출력구조를 개발하고 인간 노동 없이 self-annotated spatial information의 더 정교한 사용을 탐구하기 위해 연구를 진행 할 것
 
