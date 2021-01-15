@@ -99,6 +99,18 @@
 - Test에서 ```SAOL``` 또는 ```GAP-FC``` 기반 출력 레이어에 의한 분류 결과를 얻음
 
 ### WSOL
+✔ Weakly Supervised Object Localization
+- Data가 많다고 쳐도 Labeling이 되어있지 않음
+- 라벨을 통한 학습(Supervised Learning)
+- 약한 label로 더 구체적인 문제를 풀어보기 보자(Weakly Supervised Learning)
+  - Object Label로만 Object Localization을 해보자  
+- CNN Feautre은 우리가 몰랐던 Representation이 무궁무진
+  - CNN은 Hierarchical model이라는 장점이랑 Deep해질 수록 Contextual meaning 을 담고 있음  
+  - CNN의 장점을 이용하여 Object Class로 학습했음에도 불구하고 Object Localization이 가능
+  
+✔✔ Supervised Learning of Localization 의 경우는 물체가 있는 **Bounding Box** 데이터가 필요로 한다.
+- Weakly Supervised Localizaiton은 이런 Bounding Box 없이 한번 해보자는 움직임
+  
 - SAOL에 의한 spatial Attetion map을 평가하기 위해, 우리는 WSOL의 작업에 대해 ResNet-50 모델을 사용한 실험을 수행
 - 기존 WSOL 방법의 평가 전략을 따름
 - WSOL의 일반적인 방법은 최소-최대 정규화를 사용하여 점수 맵을 정규화하여 0과 1사이에 있도록 하는 것
