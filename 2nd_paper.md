@@ -99,6 +99,12 @@
 - Test에서 ```SAOL``` 또는 ```GAP-FC``` 기반 출력 레이어에 의한 분류 결과를 얻음
 
 ## Conclusion
+- ```Spatially Attentive Output Layer``` 출력 계층
+- ```Spatial Attention Map```&```Spatial Logits```
+- ```Self-supervised Loss``` - CutMix의 Loss function 변형
+- ```Self-disillation```
+- 성능평가 ```WSOL```  
+**<내용>**  
 우리는 ```Spatially Attentive Output Layer```라는 이미지 분류를 위한 새로운 출력 계층을 제안   
 ```Spatial Attention map```과 ```Spatial logits```이라는 새로운 두가지 분기의 출력은 Attention mechanism을 통해 분류 출력을 생성    
 제안된 ```SAOL```은 거의 동일한 계산비용으로 다양한 작업에 대한 대표적인 아키텍처의 성능을 향상시킴   
