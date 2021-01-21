@@ -61,7 +61,9 @@ Encoder와 Decoder 두개의 Architecture로 구성
 ![image](https://user-images.githubusercontent.com/72767245/105394744-50ac8a00-5c61-11eb-97b2-172e906834b8.png)
 
 <br>
+
 **Attention을 RNN의 단점을 보완하는 정도가 아니라 인코더, 디코더를 전부 어텐션 구조로 구성**
+
 <br><br>
 
 
@@ -73,7 +75,6 @@ Encoder와 Decoder 두개의 Architecture로 구성
 
 <br>
   
-![image](https://user-images.githubusercontent.com/72767245/104017993-73b85200-51fc-11eb-96f8-f9e64c5898ab.png)
 
 - ```Encoder```구조는 하나의 인코더가 Self-Attention 및 Feed Forward인 두 개의 sub-layer로 이루어져 있다.(가중치 공유하지 않음)
 - ```self-attention layer```: 하나의 특정한 단어를 인코딩 하기 위해 입력 내의 모든 다른 단어들과의 관계를 살펴보게 된다.
