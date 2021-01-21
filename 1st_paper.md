@@ -27,11 +27,13 @@ Encoder와 Decoder 두개의 Architecture로 구성
 디코더에서 출력 단어를 예측하는 매 시점(time step)마다 인코더에서의 전체 입력 문장을 다시 한 번 참고  
 단, 전체 입력 문장을 전부 다 동일한 비율로 참고하는 것이 아닌, 해당 시점에서 예측해야할 단어와 연관이 있는 입력 단어 부분을 좀 더 집중함  
 
-#### Dot-Product Attention(어텐션의 한 종류)
-![image](https://user-images.githubusercontent.com/72767245/105388457-05db4400-5c5a-11eb-987a-16a814149657.png)  
+### Dot-Product Attention(어텐션의 한 종류)
 
 **Attention Value** 구해야됨  
-[과정] 디코더의 t시점에서의 은닉상태와 인코더의 각 은닉상태 내적 >> **Attention-score** >> softmax >> **Attention Distribution**&**Attention weight** >> weighted sum >> **Attention value**  
+#### [과정] 디코더의 t시점에서의 은닉상태와 인코더의 각 은닉상태 내적 >> **Attention-score** >> softmax >> **Attention Distribution**&**Attention weight** >> weighted sum >> **Attention value**  
+
+
+![image](https://user-images.githubusercontent.com/72767245/105388457-05db4400-5c5a-11eb-987a-16a814149657.png)  
 
 - Attention value는 ```Context vector```라고함  
 - Attention 값이 구해지면 Attention 값과 디코더 현재 시점의 은닉상태와 결합하여 하나의 벡터로 만듦
