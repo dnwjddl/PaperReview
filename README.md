@@ -34,7 +34,8 @@ https://arxiv.org/abs/1912.01865
 ### Editing in Style: Uncovering the Local Semantics of GANs (CVPR 2020)
 이미지를 생성 할 때 객체의 특정 부분(Localizaed smentic part)을 수정할 수 있도록 함.
 
-* paper : https://openaccess.thecvf.com/content_CVPR_2020/papers/Collins_Editing_in_Style_Uncovering_the_Local_Semantics_of_GANs_CVPR_2020_paper.pdf
+* paper : https://arxiv.org/abs/2004.14367  
+https://openaccess.thecvf.com/content_CVPR_2020/papers/Collins_Editing_in_Style_Uncovering_the_Local_Semantics_of_GANs_CVPR_2020_paper.pdf
 * video : https://www.youtube.com/watch?v=l2RATZjpzwI
 
 
