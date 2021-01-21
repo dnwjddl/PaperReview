@@ -11,6 +11,7 @@ SoTA는 사전 학습된 신경망들 중 현재 최고 수준의 신경망
 - Seq2seq
 - Attention Mechanism
 - Transformer
+
 ### Seq2Seq
 ![image](https://user-images.githubusercontent.com/72767245/105385040-3f11b500-5c56-11eb-8676-17cf94c6ec14.png)
 Encoder와 Decoder 두개의 Architecture로 구성  
@@ -30,11 +31,10 @@ Encoder와 Decoder 두개의 Architecture로 구성
 ![image](https://user-images.githubusercontent.com/72767245/105388457-05db4400-5c5a-11eb-987a-16a814149657.png)  
 
 **Attention Value** 구해야됨  
-[과정]  
-디코더의 t시점에서의 은닉상태와 인코더의 각 은닉상태 내적 >> **Attention-score** >> softmax >> **Attention Distribution**&**Attention weight** >> weighted sum >> **Attention value**  
+[과정] 디코더의 t시점에서의 은닉상태와 인코더의 각 은닉상태 내적 >> **Attention-score** >> softmax >> **Attention Distribution**&**Attention weight** >> weighted sum >> **Attention value**  
 
-Attention value는 ```Context vector```라고함  
-Attention 값이 구해지면 Attention 값과 디코더 현재 시점의 은닉상태와 결합하여 하나의 벡터로 만듦
+- Attention value는 ```Context vector```라고함  
+- Attention 값이 구해지면 Attention 값과 디코더 현재 시점의 은닉상태와 결합하여 하나의 벡터로 만듦
 
 1. Attention Score을 구한다
 ![image](https://user-images.githubusercontent.com/72767245/105390402-5a7fbe80-5c5c-11eb-902c-39af310d926c.png)
@@ -61,7 +61,7 @@ Attention 값이 구해지면 Attention 값과 디코더 현재 시점의 은닉
 
 6. S_t를 출력층의 입력으로 사용
 
-
+### Transformer
 ### NLP에서의 Transformer
 ```RNN 계열```(무조건 가까운 단어가 연관성 높게) **Long-Term Dependency 문제 발생**  
 ```LSTM``` 게이트 추가하여 멀리있는 단어에도 영향력이 가해짐 (이후 ```GRU```등장)
