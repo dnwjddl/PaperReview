@@ -1,4 +1,58 @@
+## WHAT THIS PAPER WANTS TO SAY
+- 일반적으로 컴퓨터 비전의 Image Classification에서는 CNN(Convolution Neural Network) 구조를 사용
+- 이 논문에서는 자연어처리(NLP) 분야에서 쓰이는 모델인 ```Transformer```를 Image Classification에 적용
+- CNN 구조를 사용하던 기존 Image Classification 중 SoTA인 ResNet, Noisy Student 보다 훨씬 적은 계산 비용으로 더 나은 성능을 보임
+
+✔ SoTA (State-of-the-art)  
+현재 최고 수준의 결과를 의미  
+SoTA는 사전 학습된 신경망들 중 현재 최고 수준의 신경망
+
 ## Base Knowledge
+- Seq2seq
+- Attention Mechanism
+- Transformer
+### Seq2Seq
+![image](https://user-images.githubusercontent.com/72767245/105385040-3f11b500-5c56-11eb-8676-17cf94c6ec14.png)
+Encoder와 Decoder 두개의 Architecture로 구성  
+인코더와 디코더 내부는 RNN 구조로 구성(실제로는 Vanilla RNN이 아닌 LSTM이나 GRU셀로 구성)  
+<sos>는 디코더의 초기입력으로 문장의 시작을 의미  
+문장의 끝은 <eos>로 다음 단어로 예측할때까지 반복
+
+**RNN기반 seq2seq의 문제점**  
+- (인코더를 거친 후)하나의 고정된 크기의 벡터에 모든 정보를 압축하여 정보 손실 발생
+- RNN의 기울기 소실 문제(Vanishing Gradient Problem)이 존재
+- 이런 문제들 때문에 입력 문장이 길면 번역 품질이 떨어지는 현상 발생
+### Attention Mechanism
+디코더에서 출력 단어를 예측하는 매 시점(time step)마다 인코더에서의 전체 입력 문장을 다시 한 번 참고  
+단, 전체 입력 문장을 전부 다 동일한 비율로 참고하는 것이 아닌, 해당 시점에서 예측해야할 단어와 연관이 있는 입력 단어 부분을 좀 더 집중함  
+
+#### Dot-Product Attention(어텐션의 한 종류)
+![image](https://user-images.githubusercontent.com/72767245/105388457-05db4400-5c5a-11eb-987a-16a814149657.png)  
+1. Attention Score을 구한다
+![image](https://user-images.githubusercontent.com/72767245/105390402-5a7fbe80-5c5c-11eb-902c-39af310d926c.png)
+- Attention Mechanism에서는 출력 단어 예측에 또 다른 값을 필요로 하는데 바로 Attention value라는 새로운 값
+- Attention value 값을 알라면 Attention score을 알아야한다
+- ```Attention score```: 현재 디코더의 시점 t에서 단어를 예측하기 위해, 인코더의 모든 은닉상태 각각이 디코더의 현 시점의 은닉상태 s_t 와 얼마나 유사한지를 판단하는 스코어의 값
+- S_t을 전치하고 각 은닉상태와 dot product(내적)을 수행 하여 스칼라값을 얻음
+
+2. Softmax 함수를 통해 Attention Distribution을 구함
+- 어텐션 스코어 모음에 softmax 함수를 적용하여 모든 값을 합하면 1이 된다 
+- 이를 Attention Distribution,이라고하면, 각각의 값은 어텐션 가중치(Attention weight)라고 함
+
+3. 각 인코더의 어텐션 가중치와 은닉상태를 가중합하여 어텐션 값(Attention Value)을 구한다
+![image](https://user-images.githubusercontent.com/72767245/105390356-49cf4880-5c5c-11eb-97d4-67ac50c064de.png)
+
+- 각 인코더의 은닉상태와 Attention Weight값들을 곱하고, 최종적으로 모두 더한다 (**Weighted Sum**)
+- 이러한 Attention 값 a_t은 종종 인코더의 문맥을 포함하고 있다고 하여, context vector라고 부름
+- 앞서 배운 가장 기본적인 seq2seq에서는 인코더의 마지막 은닉 상태를 context vector라고 부르는것과 대조
+
+4. Attention value와 디코더의 t 시점의 은닉상태를 연결한다(concatenate)
+
+5. 출력층 연산의 입력이 되는 값 계산
+
+6. S_t를 출력층의 입력으로 사용
+
+
 ### NLP에서의 Transformer
 ```RNN 계열```(무조건 가까운 단어가 연관성 높게) **Long-Term Dependency 문제 발생**  
 ```LSTM``` 게이트 추가하여 멀리있는 단어에도 영향력이 가해짐 (이후 ```GRU```등장)
