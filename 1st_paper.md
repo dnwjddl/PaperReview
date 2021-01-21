@@ -25,7 +25,8 @@ SoTA는 사전 학습된 신경망들 중 현재 최고 수준의 신경망
   
 
 ### Seq2Seq
-![image](https://user-images.githubusercontent.com/72767245/105385040-3f11b500-5c56-11eb-8676-17cf94c6ec14.png)
+![image](https://user-images.githubusercontent.com/72767245/105385040-3f11b500-5c56-11eb-8676-17cf94c6ec14.png)  
+
 Encoder와 Decoder 두개의 Architecture로 구성  
 인코더와 디코더 내부는 RNN 구조로 구성(실제로는 Vanilla RNN이 아닌 LSTM이나 GRU셀로 구성)  
 <sos>는 디코더의 초기입력으로 문장의 시작을 의미  
