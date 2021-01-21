@@ -84,6 +84,35 @@ Encoder와 Decoder 두개의 Architecture로 구성
 
 ![image](https://user-images.githubusercontent.com/72767245/104018398-0bb63b80-51fd-11eb-9766-5d0bee99bc0d.png)
 
+- Attention 3가지 종류
+  - Encoder self-Attention (Encoder 안에)
+  - Masked Decoder self-Attention (Decoder 안에)
+  - Encoder-Decoder Attention (Decoder 안에)
+
+- Query, Key, Value
+  - Query: 모든 시점의 디코더 셀에서의 은닉 상태  
+  **딕셔너리의 Keys, Values**  
+  - Keys: 모든 시점의 인코더 셀의 은닉 상태들
+  - Values: 모든 시점의 인코더 셀의 은닉 상태들
+    - 각 Q벡터는 모든 K벡터에 대한 Attention score -> Attention Distribution 생성
+    - Attention Distribution + V벡터와 가중치 = ```context Vector```(attention value)
+```
+(Encoder) Encoder self-Attention: Query = Key = Value
+(Decoder) Masked Decoder self-Attention: Query = Key = Value
+(Decoder) Encoder-Decoder Attention: Query -> Decoder Vector / Key = Value -> Encoder Vector
+```
+
+![image](https://user-images.githubusercontent.com/72767245/105397221-1db7c580-5c64-11eb-875d-b5fffec221be.png)  
+
+- Add&Norm 기법
+  - 잔차 연결(Residual Connection)과 층 정규화(Layer Normalization)
+- (Decoder) 첫번째 서브 층은 look-ahead mask: 인코더와 동일한 연산을 수행하고, 마스킹을 적용한다는 점만 다름
+- (Decoder) 두번째 서브 층은 Self-Attention이 아님
+  - 인코더-디코더 어텐션은 Query가 디코더 행렬인 반면, Key-value는 인코더 행렬임
+
+#### Multi-head Attention
+- 어텐션을 병렬로 수행하여 다른 시각으로 정보들을 수집
+
 # An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
 ## Abstract
 -```Transformer```
