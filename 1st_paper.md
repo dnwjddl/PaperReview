@@ -3,7 +3,7 @@
 - 이 논문에서는 자연어처리(NLP) 분야에서 쓰이는 모델인 ```Transformer```를 Image Classification에 적용
 - CNN 구조를 사용하던 기존 Image Classification 중 SoTA인 ResNet, Noisy Student 보다 훨씬 적은 계산 비용으로 더 나은 성능을 보임
 
-✔ SoTA (State-of-the-art)  
+✔ **SoTA (State-of-the-art)**  
 현재 최고 수준의 결과를 의미  
 SoTA는 사전 학습된 신경망들 중 현재 최고 수준의 신경망
 
@@ -28,12 +28,21 @@ Encoder와 Decoder 두개의 Architecture로 구성
 
 #### Dot-Product Attention(어텐션의 한 종류)
 ![image](https://user-images.githubusercontent.com/72767245/105388457-05db4400-5c5a-11eb-987a-16a814149657.png)  
+
+**Attention Value** 구해야됨  
+[과정]  
+디코더의 t시점에서의 은닉상태와 인코더의 각 은닉상태 내적 >> **Attention-score** >> softmax >> **Attention Distribution**&**Attention weight** >> weighted sum >> **Attention value**  
+
+Attention value는 ```Context vector```라고함  
+Attention 값이 구해지면 Attention 값과 디코더 현재 시점의 은닉상태와 결합하여 하나의 벡터로 만듦
+
 1. Attention Score을 구한다
 ![image](https://user-images.githubusercontent.com/72767245/105390402-5a7fbe80-5c5c-11eb-902c-39af310d926c.png)
 - Attention Mechanism에서는 출력 단어 예측에 또 다른 값을 필요로 하는데 바로 Attention value라는 새로운 값
 - Attention value 값을 알라면 Attention score을 알아야한다
 - ```Attention score```: 현재 디코더의 시점 t에서 단어를 예측하기 위해, 인코더의 모든 은닉상태 각각이 디코더의 현 시점의 은닉상태 s_t 와 얼마나 유사한지를 판단하는 스코어의 값
 - S_t을 전치하고 각 은닉상태와 dot product(내적)을 수행 하여 스칼라값을 얻음
+  - S_t: 현재 시점 t에서의 디코더의 은닉상태
 
 2. Softmax 함수를 통해 Attention Distribution을 구함
 - 어텐션 스코어 모음에 softmax 함수를 적용하여 모든 값을 합하면 1이 된다 
