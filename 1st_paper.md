@@ -12,6 +12,18 @@ SoTA는 사전 학습된 신경망들 중 현재 최고 수준의 신경망
 - Attention Mechanism
 - Transformer
 
+<개념>
+- ```RNN 계열```(무조건 가까운 단어가 연관성 높게) **Long-Term Dependency 문제 발생**  
+- ```LSTM``` 게이트 추가하여 멀리있는 단어에도 영향력이 가해짐 (이후 ```GRU```등장)
+  - 거리에 대한 한계가 여전히 존재
+  - 순차적으로 연산해야한다는 점이 병렬처리에 어려움이 있어 연산량이 너무 많아 학습속도가 느림
+- ```Attention``` 인코더-디코더 구조로 이루어져있으며, 이 구조에서 인코더는 입력 시퀀스 하나를 벡터 표현으로 압축, 디코더는 이 벡터표현으로 출력 시퀀스 만듦
+  - 인코더가 입력 시퀀스를 하나의 벡터로 압축하는 과정에서 입력 시퀀스의 정보가 일부 손실 된다는 단점
+- ```Transformer``` Attention으로 인코더와 디코더로 구현한 것  
+  - 인코더에서 입력 시퀀스를 입력 받고, 디코더에서 출력 시퀀스를 출력하는 인코더-디코더 구조로 되어있음
+  - 이전과 다른점은 **인코더와 디코더라는 단위가 N개 존재** 할 수 있다는 것(논문에서는 6개 쌓았다고 함)
+  
+
 ### Seq2Seq
 ![image](https://user-images.githubusercontent.com/72767245/105385040-3f11b500-5c56-11eb-8676-17cf94c6ec14.png)
 Encoder와 Decoder 두개의 Architecture로 구성  
@@ -30,7 +42,8 @@ Encoder와 Decoder 두개의 Architecture로 구성
 ### Dot-Product Attention(어텐션의 한 종류)
 
 **Attention Value** 구해야됨  
-#### [과정] 디코더의 t시점에서의 은닉상태와 인코더의 각 은닉상태 내적 >> **Attention-score** >> softmax >> **Attention Distribution**&**Weighted Sum** >> weighted sum >> **Attention value**
+#### [과정]
+디코더의 t시점에서의 은닉상태와 인코더의 각 은닉상태 내적 >> **Attention-score** >> softmax >> **Attention Distribution**&**Weighted Sum** >> weighted sum >> **Attention value**
 
 
 ![image](https://user-images.githubusercontent.com/72767245/105388457-05db4400-5c5a-11eb-987a-16a814149657.png)  
@@ -44,27 +57,21 @@ Encoder와 Decoder 두개의 Architecture로 구성
 
 
 ### NLP에서의 Transformer
+
+![image](https://user-images.githubusercontent.com/72767245/105394744-50ac8a00-5c61-11eb-97b2-172e906834b8.png)
+
 <br>
 **Attention을 RNN의 단점을 보완하는 정도가 아니라 인코더, 디코더를 전부 어텐션 구조로 구성**
 <br><br>
-![image](https://user-images.githubusercontent.com/72767245/105394744-50ac8a00-5c61-11eb-97b2-172e906834b8.png)
+
+
+**RNN 구조를 없애고 전부 Attention mechanism으로 구성했기 때문에 각 단어의 위치정보를 RNN과 다른 방식으로 알려줘야함(```positional encoding```)**
+
 <br>
 
 ![image](https://user-images.githubusercontent.com/72767245/105395170-cc0e3b80-5c61-11eb-8df7-4f819f09fd41.png)
 
-<br><br>
-**RNN 구조를 없애고 전부 Attention mechanism으로 구성했기 때문에 각 단어의 위치정보를 RNN과 다른 방식으로 알려줘야함(```positional encoding```)**
-```RNN 계열```(무조건 가까운 단어가 연관성 높게) **Long-Term Dependency 문제 발생**  
-```LSTM``` 게이트 추가하여 멀리있는 단어에도 영향력이 가해짐 (이후 ```GRU```등장)
-  - 거리에 대한 한계가 여전히 존재
-  - 순차적으로 연산해야한다는 점이 병렬처리에 어려움이 있어 연산량이 너무 많아 학습속도가 느림
-```Attention``` 인코더-디코더 구조로 이루어져있으며, 이 구조에서 인코더는 입력 시퀀스 하나를 벡터 표현으로 압축, 디코더는 이 벡터표현으로 출력 시퀀스 만듦
-  - 인코더가 입력 시퀀스를 하나의 벡터로 압축하는 과정에서 입력 시퀀스의 정보가 일부 손실 된다는 단점
-![image](https://user-images.githubusercontent.com/72767245/104017985-6dc27100-51fc-11eb-934c-2227741cede7.png)
-
-```Transformer``` Attention으로 인코더와 디코더로 구현한 것  
-인코더에서 입력 시퀀스를 입력 받고, 디코더에서 출력 시퀀스를 출력하는 인코더-디코더 구조로 되어있음
-  - 이전과 다른점은 **인코더와 디코더라는 단위가 N개 존재** 할 수 있다는 것(논문에서는 6개 쌓았다고 함)
+<br>
   
 ![image](https://user-images.githubusercontent.com/72767245/104017993-73b85200-51fc-11eb-96f8-f9e64c5898ab.png)
 
