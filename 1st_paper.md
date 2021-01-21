@@ -30,7 +30,7 @@ Encoder와 Decoder 두개의 Architecture로 구성
 ### Dot-Product Attention(어텐션의 한 종류)
 
 **Attention Value** 구해야됨  
-#### [과정] 디코더의 t시점에서의 은닉상태와 인코더의 각 은닉상태 내적 >> **Attention-score** >> softmax >> **Attention Distribution**&**Attention weight** >> weighted sum >> **Attention value**  
+#### [과정] 디코더의 t시점에서의 은닉상태와 인코더의 각 은닉상태 내적 >> **Attention-score** >> softmax >> **Attention Distribution**&**Weighted Sum** >> weighted sum >> **Attention value**
 
 
 ![image](https://user-images.githubusercontent.com/72767245/105388457-05db4400-5c5a-11eb-987a-16a814149657.png)  
@@ -38,41 +38,28 @@ Encoder와 Decoder 두개의 Architecture로 구성
 - Attention value는 ```Context vector```라고함  
 - Attention 값이 구해지면 Attention 값과 디코더 현재 시점의 은닉상태와 결합하여 하나의 벡터로 만듦
 
-1. Attention Score을 구한다
 ![image](https://user-images.githubusercontent.com/72767245/105390402-5a7fbe80-5c5c-11eb-902c-39af310d926c.png)
-- Attention Mechanism에서는 출력 단어 예측에 또 다른 값을 필요로 하는데 바로 Attention value라는 새로운 값
-- Attention value 값을 알라면 Attention score을 알아야한다
-- ```Attention score```: 현재 디코더의 시점 t에서 단어를 예측하기 위해, 인코더의 모든 은닉상태 각각이 디코더의 현 시점의 은닉상태 s_t 와 얼마나 유사한지를 판단하는 스코어의 값
-- S_t을 전치하고 각 은닉상태와 dot product(내적)을 수행 하여 스칼라값을 얻음
-  - S_t: 현재 시점 t에서의 디코더의 은닉상태
 
-2. Softmax 함수를 통해 Attention Distribution을 구함
-- 어텐션 스코어 모음에 softmax 함수를 적용하여 모든 값을 합하면 1이 된다 
-- 이를 Attention Distribution,이라고하면, 각각의 값은 어텐션 가중치(Attention weight)라고 함
-
-3. 각 인코더의 어텐션 가중치와 은닉상태를 가중합하여 어텐션 값(Attention Value)을 구한다
 ![image](https://user-images.githubusercontent.com/72767245/105390356-49cf4880-5c5c-11eb-97d4-67ac50c064de.png)
 
-- 각 인코더의 은닉상태와 Attention Weight값들을 곱하고, 최종적으로 모두 더한다 (**Weighted Sum**)
-- 이러한 Attention 값 a_t은 종종 인코더의 문맥을 포함하고 있다고 하여, context vector라고 부름
-- 앞서 배운 가장 기본적인 seq2seq에서는 인코더의 마지막 은닉 상태를 context vector라고 부르는것과 대조
 
-4. Attention value와 디코더의 t 시점의 은닉상태를 연결한다(concatenate)
-
-5. 출력층 연산의 입력이 되는 값 계산
-
-6. S_t를 출력층의 입력으로 사용
-
-### Transformer
 ### NLP에서의 Transformer
+<br>
+**Attention을 RNN의 단점을 보완하는 정도가 아니라 인코더, 디코더를 전부 어텐션 구조로 구성**
+<br><br>
+![image](https://user-images.githubusercontent.com/72767245/105394744-50ac8a00-5c61-11eb-97b2-172e906834b8.png)
+<br>
+
+![image](https://user-images.githubusercontent.com/72767245/105395170-cc0e3b80-5c61-11eb-8df7-4f819f09fd41.png)
+
+<br><br>
+**RNN 구조를 없애고 전부 Attention mechanism으로 구성했기 때문에 각 단어의 위치정보를 RNN과 다른 방식으로 알려줘야함(```positional encoding```)**
 ```RNN 계열```(무조건 가까운 단어가 연관성 높게) **Long-Term Dependency 문제 발생**  
 ```LSTM``` 게이트 추가하여 멀리있는 단어에도 영향력이 가해짐 (이후 ```GRU```등장)
   - 거리에 대한 한계가 여전히 존재
   - 순차적으로 연산해야한다는 점이 병렬처리에 어려움이 있어 연산량이 너무 많아 학습속도가 느림
 ```Attention``` 인코더-디코더 구조로 이루어져있으며, 이 구조에서 인코더는 입력 시퀀스 하나를 벡터 표현으로 압축, 디코더는 이 벡터표현으로 출력 시퀀스 만듦
   - 인코더가 입력 시퀀스를 하나의 벡터로 압축하는 과정에서 입력 시퀀스의 정보가 일부 손실 된다는 단점
-
-
 ![image](https://user-images.githubusercontent.com/72767245/104017985-6dc27100-51fc-11eb-934c-2227741cede7.png)
 
 ```Transformer``` Attention으로 인코더와 디코더로 구현한 것  
