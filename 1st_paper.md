@@ -115,16 +115,26 @@ Encoder와 Decoder 두개의 Architecture로 구성
 
 # An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
 ## Abstract
--```Transformer```
+
+- ```Transformer```
   - standard architecture for NLP
+  
 - Convoluional Networks
   - attention is applied keeping their overall structure
   - 컴퓨터 비전에서는 attention 개념은 CNN 구조에 주로 적용되어 전체 구조를 유지하되 CNN 특성 요소를 대체하는데 사용
--  **Transformer in Computer Vision**
-  - a pure transformer can perform very well on ```image classification tasks when applied directly to sequences of image patches
-  - achieved SoTA with small computational costs when pre-trained on large dataset
- 
+
+- **Transformer in Computer Vision**
+  - CNN에 대한 이러한 의존이 필요하지 않으며 image patch의 sequence가 transformer에 적용될 때 image classification task에서 잘 수행될 수 있음
+    - a pure transformer can perform very well on image classification tasks when applied directly to sequences of image patches
+  - 많은 양의 데이터에 대해 사전 학습을 수행하고 여러가지 recognition benchmark(ImageNet, CIFAR-100, VTAB등)에 대한 Transfer Learning을 수행하면 Vision Transformer는 훨씬 적은 computational resource를 가지며 동시에 SoTA CNN과 비교하여 더 우수한 결과 얻음
+    - achieved SoTA with small computational costs when pre-trained on large dataset
+  
 ## Introduction
+- NLP
+- Computer Vision
+- In this paper
+- mid sized Dataset
+- Large-scale Dataset
  
 ### NLP
 Large Text Corpus에서 pre-train 후 task specific dataset에 대해 fine-tuning을 수행하는 것(BERT)
@@ -151,6 +161,8 @@ Transformer는 translation equivariance 및 locality와 같은 CNN 고유의 ind
 대규모의 Dataset으로 학습을 하면 ```inductive bias```능가 가능  
 Transformer는 충분한 규모로 사전 학습되고 더 적은 데이터로 fine tuning 할 때 좋은 결과를 얻을 수 있음
 - 각 유명한 benchmark에서 ImageNet에서 88.3%, CIFAR-100에서 94.55% 등의 성능으로 SoTA에 접근하거나 이를 능가하는 결과 
+
+## Related Work
 
 ## Method
 ### ViT(Vision Transformer)
