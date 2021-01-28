@@ -34,3 +34,13 @@ Dy는 G을 업데이트, Dx는 F를 업데이트
 
 ## » CycleGAN과 StarGAN 차이
 
+![image](https://user-images.githubusercontent.com/72767245/106150084-5143a400-61be-11eb-916b-429b6f6dd68b.png)
+
+#### ```CycleGAN``` 
+- Attributes가 n개면 n(n-1)개의 모델 생성  
+#### ```StarGAN```
+- 하나의 큰 Generator
+- 모든 데이터의 정보를 이용하여 Train 가능
+- 단점: image의 사이즈가 다 같아야된다 (CycleGAN은 Generator가 다 달라서 flexibility하다)
+
+
