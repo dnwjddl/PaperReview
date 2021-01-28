@@ -29,7 +29,7 @@
 Dy는 G을 업데이트, Dx는 F를 업데이트
 ![image](https://user-images.githubusercontent.com/72767245/106115651-58ee5300-6194-11eb-9915-bdc20afed69b.png)
 
-**Loss**  
+### CycleGAN의 Loss
 ![image](https://user-images.githubusercontent.com/72767245/106149400-8e5b6680-61bd-11eb-9eed-a474b0239417.png)
 
 ## » CycleGAN과 StarGAN 차이
@@ -43,4 +43,47 @@ Dy는 G을 업데이트, Dx는 F를 업데이트
 - 모든 데이터의 정보를 이용하여 Train 가능
 - 단점: image의 사이즈가 다 같아야된다 (CycleGAN은 Generator가 다 달라서 flexibility하다)
 
+## StarGAN 
+![image](https://user-images.githubusercontent.com/72767245/106150816-0f672d80-61bf-11eb-9e9c-7a84720c0fa3.png)
 
+- x: input image
+- y: output image
+- c: target label
+<br><br>
+- Generator: G(x,c) -> y
+- Discriminator: D:x -> {D_src(x), D_cls(x)}
+  - real/fake, Attributions
+
+### StarGAN의 loss
+- Adversarial Loss (이미지가 진짜인지 translate 된건지)
+![image](https://user-images.githubusercontent.com/72767245/106151536-cb285d00-61bf-11eb-82af-24e464e44b21.png)
+
+- Domain classification Loss
+![image](https://user-images.githubusercontent.com/72767245/106151536-cb285d00-61bf-11eb-82af-24e464e44b21.png)
+이미지에 대해 도메인을 잘 classification 해냈는지 / Discriminator Train
+
+![image](https://user-images.githubusercontent.com/72767245/106151536-cb285d00-61bf-11eb-82af-24e464e44b21.png)
+생성된 이미지에 대해 도메인을 잘 classification 해냈는지 / Generator Train
+
+- Reconstruction Loss(cycle-consistency loss)
+![image](https://user-images.githubusercontent.com/72767245/106151536-cb285d00-61bf-11eb-82af-24e464e44b21.png)
+도메인을 변형한 이미지를 다시 원본 이미지의 도메인을 갖도록 생성한 이미지가 원본 이미지와 얼마나 차이가 나는지
+
+**Objective Function**  
+![image](https://user-images.githubusercontent.com/72767245/106151439-b3e96f80-61bf-11eb-9849-19c06afedb11.png)
+
+## 두가지 Contribution
+### Multi Attribution
+### Multi Dataset
+- Celeb: blond 등의 사람 얼굴 내 특징
+- RaFD: Feelings
+**Problems: Multi datasets have different labels & Each image only has partial information of the labels**  
+#### Use Mask vector(m)
+![image](https://user-images.githubusercontent.com/72767245/106152316-a5e81e80-61c0-11eb-9dfc-ce3316b26b9c.png)
+- m: one-hot vector with n dimensions
+- Ci: one-hot vector for categorical attributes
+- 이 이미지가 어떤 Attributes을 가지고 있는지 network에 전달
+
+![image](https://user-images.githubusercontent.com/72767245/106152647-09724c00-61c1-11eb-8ab0-932a28e65525.png)
+
+![image](https://user-images.githubusercontent.com/72767245/106153024-72f25a80-61c1-11eb-9ca5-f733d61091e8.png)
