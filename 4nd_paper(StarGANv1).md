@@ -62,6 +62,7 @@ Dy는 G을 업데이트, Dx는 F를 업데이트
 - Reconstruction Loss(cycle-consistency loss)
   - 도메인을 변형한 이미지를 다시 원본 이미지의 도메인을 갖도록 생성한 이미지가 원본 이미지와 얼마나 차이가 나는지
 
+![image](https://user-images.githubusercontent.com/72767245/106155193-bea60380-61c3-11eb-815c-4fe66108be44.png)
 
 <br>
 **Objective Function**  
