@@ -15,7 +15,7 @@
   - Translate image into multi domains simultaneously
   
   
-### ¿CycleGAN¡▶►
+### » CycleGAN
 - multi-domain 불가능
 - 1 대 1로 하나의 모델을 만든다 (한방향 한모델)
 
