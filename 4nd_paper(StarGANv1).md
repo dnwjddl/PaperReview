@@ -56,16 +56,23 @@ Dy는 G을 업데이트, Dx는 F를 업데이트
 
 ### StarGAN의 loss
 - Adversarial Loss (이미지가 진짜인지 translate 된건지)  
+  - WGAN의 손실함수를 사용
 - Domain classification Loss
-  - 이미지에 대해 도메인을 잘 classification 해냈는지 / Discriminator Train
-  - 생성된 이미지에 대해 도메인을 잘 classification 해냈는지 / Generator Train
+  - (Discriminator Train) 이미지에 대해 도메인을 잘 classification 해냈는지
+  - (Generator Train) 생성된 이미지에 대해 도메인을 잘 classification 해냈는지 
 - Reconstruction Loss(cycle-consistency loss)
   - 도메인을 변형한 이미지를 다시 원본 이미지의 도메인을 갖도록 생성한 이미지가 원본 이미지와 얼마나 차이가 나는지
 
 ![image](https://user-images.githubusercontent.com/72767245/106155193-bea60380-61c3-11eb-815c-4fe66108be44.png)
 
+- x: 원본 이미지
+- c: 바꾸자 하는 도메인 (목적 도메인을 one-hot vector로 사용)
+- c': 변환하기 전 원래 이미지의 도메인
+
 <br>
+
 **Objective Function**  
+
 <br>
 
 ![image](https://user-images.githubusercontent.com/72767245/106151439-b3e96f80-61bf-11eb-9849-19c06afedb11.png)
