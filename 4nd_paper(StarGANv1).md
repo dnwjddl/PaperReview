@@ -29,4 +29,5 @@
 Dy는 G을 업데이트, Dx는 F를 업데이트
 ![image](https://user-images.githubusercontent.com/72767245/106115651-58ee5300-6194-11eb-9915-bdc20afed69b.png)
 
-**Loss**
+**Loss**  
+![image](https://user-images.githubusercontent.com/72767245/106149400-8e5b6680-61bd-11eb-9eed-a474b0239417.png)
