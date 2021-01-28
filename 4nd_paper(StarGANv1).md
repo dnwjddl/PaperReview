@@ -57,23 +57,32 @@ Dy는 G을 업데이트, Dx는 F를 업데이트
 ### StarGAN의 loss
 - Adversarial Loss (이미지가 진짜인지 translate 된건지)  
 <br>
+
 ![image](https://user-images.githubusercontent.com/72767245/106151536-cb285d00-61bf-11eb-82af-24e464e44b21.png)
+
 <br>
 - Domain classification Loss
 <br>
+
 ![image](https://user-images.githubusercontent.com/72767245/106151536-cb285d00-61bf-11eb-82af-24e464e44b21.png)
+
 이미지에 대해 도메인을 잘 classification 해냈는지 / Discriminator Train
 <br>
+
 ![image](https://user-images.githubusercontent.com/72767245/106151536-cb285d00-61bf-11eb-82af-24e464e44b21.png)
+
 생성된 이미지에 대해 도메인을 잘 classification 해냈는지 / Generator Train
 <br>
 - Reconstruction Loss(cycle-consistency loss)
 <br>
+
 ![image](https://user-images.githubusercontent.com/72767245/106151536-cb285d00-61bf-11eb-82af-24e464e44b21.png)
+
 도메인을 변형한 이미지를 다시 원본 이미지의 도메인을 갖도록 생성한 이미지가 원본 이미지와 얼마나 차이가 나는지
 <br>
 **Objective Function**  
 <br>
+
 ![image](https://user-images.githubusercontent.com/72767245/106151439-b3e96f80-61bf-11eb-9849-19c06afedb11.png)
 
 ## 두가지 Contribution
