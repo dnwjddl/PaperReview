@@ -15,7 +15,7 @@
   - Translate image into multi domains simultaneously
   
   
-### » CycleGAN
+## » CycleGAN
 - ```pix2pix```는 GAN loss를 합친 목적함수를 사용하여 성능을 높였지만, Training data가 pair로 존재해야된다는 한계점 존재
 - ```CycleGAN```은 사진의 스타일을 바꾸되, 다시 원본 이미지로 복구 가능한 정도로만 바꾸는 것
   - Adversarial Loss
@@ -32,4 +32,5 @@ Dy는 G을 업데이트, Dx는 F를 업데이트
 **Loss**  
 ![image](https://user-images.githubusercontent.com/72767245/106149400-8e5b6680-61bd-11eb-9eed-a474b0239417.png)
 
-### » CycleGAN과 StarGAN 차이
+## » CycleGAN과 StarGAN 차이
+
