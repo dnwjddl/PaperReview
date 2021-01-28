@@ -100,3 +100,46 @@ Dy는 G을 업데이트, Dx는 F를 업데이트
 ![image](https://user-images.githubusercontent.com/72767245/106152647-09724c00-61c1-11eb-8ab0-932a28e65525.png)
 
 ![image](https://user-images.githubusercontent.com/72767245/106153024-72f25a80-61c1-11eb-9ca5-f733d61091e8.png)
+
+## Experiments - Baselines(Benchmark)
+- DIAT
+- Cycle-GAN
+- IcGAN
+  - G:{z,c} -> x
+    - z: random vector
+    - c: conditional
+  - E_z:x -> c,z
+    - E: Encoder
+    
+## Experiments - Datasets
+- CelebA
+  - 202,599 face images
+  - 40 binary attributes
+  - Among 40, select 7 domains: 
+    - Hair color: black, blond, brown
+    - Gender: male, female
+    - Age: young, old
+- RaFD
+  - 4824 images
+  - 8 facial expressions(Angry, Contemptuous, Disgusted, Fearful, Happy, Neutral, Sad, Surprised)
+  
+## Experiments - Quantitative Results(Using AMT)
+![image](https://user-images.githubusercontent.com/72767245/106154022-818d4180-61c2-11eb-849a-654cfd61b0ac.png)
+- 각각의 Attributes에 월등한 성능을 보임
+- Attribution을 합쳤을 때도 좋은 성능을 보임 
+
+## Experiments - Quantiative Results(Classification)
+- Domain을 Translate 하고 (Discriminator나 어떤 다른 classification 모델)이 이 image가 어떤 attribution을 갖는지를 classification하고 그 에러가 어떤건지 
+
+![image](https://user-images.githubusercontent.com/72767245/106154278-c4e7b000-61c2-11eb-8202-1ea3c0410c97.png)
+
+## Experiments - Joint Training
+
+![image](https://user-images.githubusercontent.com/72767245/106154511-05dfc480-61c3-11eb-8063-5e028bc087fd.png)
+
+- SNG: Only Trained on RaFD
+- JNT: Trained on both RaFD and CelebA
+
+## Limitations
+- Use the same size of the images for translation (flexibility가 떨어짐, image를 crop해서 사용해야 함)
+- Claimed Multiple datasets but provide the results on two datasets (두가지 이미지만 사용)
