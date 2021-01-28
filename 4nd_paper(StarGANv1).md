@@ -16,9 +16,11 @@
   
   
 ### » CycleGAN
-- pix2pix는 GAN loss를 합친 목적함수를 사용하여 성능을 높였지만, Training data가 pair로 존재해야된다는 한계점 존재
-
-
+- ```pix2pix```는 GAN loss를 합친 목적함수를 사용하여 성능을 높였지만, Training data가 pair로 존재해야된다는 한계점 존재
+- ```CycleGAN```은 사진의 스타일을 바꾸되, 다시 원본 이미지로 복구 가능한 정도로만 바꾸는 것
+  - Adversarial Loss
+  - Cycle-consistency Loss
+  - Full Objective
 - multi-domain 불가능
 - 1 대 1로 하나의 모델을 만든다 (한방향 한모델)
 
