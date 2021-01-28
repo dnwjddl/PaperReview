@@ -31,3 +31,5 @@ Dy는 G을 업데이트, Dx는 F를 업데이트
 
 **Loss**  
 ![image](https://user-images.githubusercontent.com/72767245/106149400-8e5b6680-61bd-11eb-9eed-a474b0239417.png)
+
+### » CycleGAN과 StarGAN 차이
