@@ -16,6 +16,9 @@
   
   
 ### » CycleGAN
+- pix2pix는 GAN loss를 합친 목적함수를 사용하여 성능을 높였지만, Training data가 pair로 존재해야된다는 한계점 존재
+
+
 - multi-domain 불가능
 - 1 대 1로 하나의 모델을 만든다 (한방향 한모델)
 
@@ -23,3 +26,5 @@
 
 Dy는 G을 업데이트, Dx는 F를 업데이트
 ![image](https://user-images.githubusercontent.com/72767245/106115651-58ee5300-6194-11eb-9915-bdc20afed69b.png)
+
+**Loss**
