@@ -22,7 +22,7 @@ Direct set prediction problem (개별적인 인스턴스를 예측해야되는 �
 
 ### 성능
 - COCO Datset으로 Faster RCNN과 겨룰 수 있을 만큼의 성능이 나옴
-- panoptic segmentation도 가능하다. (class 별로 나누는 것이 아닌 인스턴스 별로 segmentation)
+- panoptic segmentation도 활용 가능하다. (class 별로 나누는 것이 아닌 인스턴스 별로 segmentation)
 
 ### DETR의 한계점
 - 1) 학습시키는 시간이 오래 걸린다.
