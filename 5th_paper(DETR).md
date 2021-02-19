@@ -5,7 +5,7 @@ Direct set prediction problem (개별적인 인스턴스를 예측해야되는 �
 - predict a set of bounding boxes
 - category labels for each objects of interest
 
-✔set: 순서에 상관하지 않으며, 중복되지 않음
+✔ **set**: 순서에 상관하지 않으며, 중복되지 않음
 
 ### 기존 Object Detection
 - 1) 앵커 박스 구조를 이용한 관심 영역 추출
