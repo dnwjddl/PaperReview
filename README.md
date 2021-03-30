@@ -40,5 +40,15 @@ https://openaccess.thecvf.com/content_CVPR_2020/papers/Collins_Editing_in_Style_
 
 
 ## Object Detection
+### DE:TR: End-to-End Object Detection with Transformers[Facebook AI][ECCV 2020]
+https://arxiv.org/abs/2005.12872   
+- Object Detection을 direct set prediction의 문제로 바라보는 새로운 방법을 제시
+- NMS나 앵커 생성하는 과정을 효과적으로 제거하여 End-to-end 기반의 Object Detection 방법 제시(Transformer 사용)
+
+### EfficientDet: Scalable and Efficient Object Detection [Google Brain][CVPR 2020]
+https://arxiv.org/abs/1911.09070v4   
+- 기존 EfficientNet의 저자들이 속한 Google Brain팀에서 쓴 논문으로 EfficientNet은 Image Classification문제를 타겟으로 논문을 작성하였다면, Efficient Det은 - - Object Detection 문제를 타겟으로 논문을 작성하였습니다.
+- BiFPN과 Model Scaling을 적용하여 COCO dataset에서 가장 높은 정확도를 달성하였고, 기존 연구들 대비 매우 적은 연산량(FLOPS)으로 비슷한 정확도를 달성하였다.
+
 
 ## Image Segmentation
