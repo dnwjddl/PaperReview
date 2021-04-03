@@ -51,5 +51,3 @@ https://arxiv.org/abs/1911.09070v4
 - BiFPN과 Model Scaling을 적용하여 COCO dataset에서 가장 높은 정확도를 달성하였고, 기존 연구들 대비 매우 적은 연산량(FLOPS)으로 비슷한 정확도를 달성하였다.
 
 
-## Image Segmentation
-  
