@@ -33,3 +33,9 @@ Humanoid robot과 같이 intelligent agent로 작업을 수행하려면 물체�
 - ```PrT```: Precision Tripod (삼각대: 와인잔)
 - ```PrL```: Precision Lumbrical (전화기)
 - ```RoE```: Rest or Extension (손바닥 펴있음)
+
+
+## CNN for Grasp Type Recognition
+- 각 계층의 ```Response maps```은 여러 filters와 융합되고 Pooling 작업에 의해 추가로 downsampling
+- Pooling Operation은 최대, 최소 및 평균 샘플링과 같은 downsampling를 통해 더 작은 영역의 값을 aggregate함
+- Loss Function: ```Softmax loss function```을 채택
