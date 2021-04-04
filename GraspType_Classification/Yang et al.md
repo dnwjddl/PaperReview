@@ -24,6 +24,8 @@ Humanoid robot과 같이 intelligent agent로 작업을 수행하려면 물체�
 - helps to further understand human action by introducing ```a finer layer``` of granularity(세밀함)
 
 ### Classification(7가지)
+![image](https://user-images.githubusercontent.com/72767245/113512305-ff910e80-959e-11eb-93c8-d849a446fba8.png)
+
 - ```PoC```: Power Cylindrical (원통형)
 - ```PoS```: Power Spherical (구형)
 - ```PoH```: Power Hook (손잡위 잡기)
