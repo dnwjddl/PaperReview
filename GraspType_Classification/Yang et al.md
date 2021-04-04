@@ -53,4 +53,12 @@ N은 Training sample들의 갯수, C = 7 (Class가 7개)
 - **Second Convolutional layer** : 32 filter, 5x5 with average pooling
 - **Third Convolutional layer** : 64 filter, 5x5 with average pooling
   - convolutional layer convolves its input with a bank of filters, then applies point-wise non linearity and max or average pooling operation
-- **Final Fully-connected perception layer**: 7regression outputs(linear filters to its input, then applies point-wise noe linearity.
+- **Final Fully-connected perception layer**: 7regression outputs(linear filters to its input, then applies point-wise noe linearity.) : Fully-connected perception layer은 입력에 linearfilter을 적용한 다음 point-wise non-linearity을 적용한다.
+
+
+### Test
+- 훈련된 CNN 모델에 각 target hand patch를 전달하고 7x1 크기의 출력을 얻음
+- action intention and segmentation experiments에서 우리는 both hands 에 대한 classification을 왼손과 오른손의 Classification으로 얻는다.
+- Fully automatic fine level manipulation segmentation approach을 사용하려면 video의 input hand patches를 localize한 다음 CNN을 사용하여 grasp type을 인식해야됨
+- Hand detection method을 사용해서 First frame에서 손을 감지한 다음, 평균 이동 알고리즘 기반 추적 방법을 양손에 적용하여 각 손 주변의 이미지 패치를 지속적으로 추출
+- 
