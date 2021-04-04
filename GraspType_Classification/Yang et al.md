@@ -46,3 +46,10 @@ N은 Training sample들의 갯수, C = 7 (Class가 7개)
 
 - CNN은 SGD based, Two main operation: Forward and Back Propagation  
 - learning rate는 dynamically lowered as training progresses.
+
+### Model of CNN
+- five layer [input layer + regression output을 위한 one-fully connected perception layer 포함)
+- **First convolutional layer** : 32 filter, 5x5 with max pooling
+- **Second Convolutional layer** : 32 filter, 5x5 with average pooling
+- **Third Convolutional layer** : 64 filter, 5x5 with average pooling
+  - convolutional layer convolves its input with a bank of filters, then applies point-wise non linearity and max or average pooling operation
