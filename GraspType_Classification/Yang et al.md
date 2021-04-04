@@ -39,3 +39,10 @@ Humanoid robot과 같이 intelligent agent로 작업을 수행하려면 물체�
 - 각 계층의 ```Response maps```은 여러 filters와 융합되고 Pooling 작업에 의해 추가로 downsampling
 - Pooling Operation은 최대, 최소 및 평균 샘플링과 같은 downsampling를 통해 더 작은 영역의 값을 aggregate함
 - Loss Function: ```Softmax loss function```을 채택
+
+![image](https://user-images.githubusercontent.com/72767245/113512592-5814db80-95a0-11eb-86e0-c742a9b97ba6.png)
+(n번째 Training example의 k번째 ground truth output -> tnk, k번째 output layer unit in response to the n번째 input training sample -> ynk)  
+N은 Training sample들의 갯수, C = 7 (Class가 7개)
+
+- CNN은 SGD based, Two main operation: Forward and Back Propagation  
+- learning rate는 dynamically lowered as training progresses.
