@@ -53,3 +53,4 @@ N은 Training sample들의 갯수, C = 7 (Class가 7개)
 - **Second Convolutional layer** : 32 filter, 5x5 with average pooling
 - **Third Convolutional layer** : 64 filter, 5x5 with average pooling
   - convolutional layer convolves its input with a bank of filters, then applies point-wise non linearity and max or average pooling operation
+- **Final Fully-connected perception layer**: 7regression outputs(linear filters to its input, then applies point-wise noe linearity.
