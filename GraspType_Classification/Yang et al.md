@@ -61,4 +61,7 @@ N은 Training sample들의 갯수, C = 7 (Class가 7개)
 - action intention and segmentation experiments에서 우리는 both hands 에 대한 classification을 왼손과 오른손의 Classification으로 얻는다.
 - Fully automatic fine level manipulation segmentation approach을 사용하려면 video의 input hand patches를 localize한 다음 CNN을 사용하여 grasp type을 인식해야됨
 - Hand detection method을 사용해서 First frame에서 손을 감지한 다음, 평균 이동 알고리즘 기반 추적 방법을 양손에 적용하여 각 손 주변의 이미지 패치를 지속적으로 추출
+
+
+- Grasp type을 훈련시키기 위해 이미지 patch의 크기는 64x64 pixel로 조정
 - 
