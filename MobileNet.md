@@ -8,7 +8,7 @@
 
 ## Depthwise separable Convolution
 
-### Depthwise Convolution
+### Depthwise Convolution : 레이어에서 filtering 하는 부분
 - H*W*C의 conv output을 C단위로 분리하여 각각 conv filter를 적용하여 output을 만들고 그 결과를 다시 합치면 conv filter가 훨씬 더 적은 파라미터를 가지고 동일한 크기의 output을 낼 수 있음
 - 각 필터에 대한 연산 결과가 다른 필터로부터 독립적일 필요가 있을 경우에 장점
 
@@ -24,7 +24,7 @@ class depthwise_conv(nn.Module):
     return out
 ```
 
-### Pointwise convolution
+### Pointwise convolution: filter된 부분을 comvining 하는 부분
 - 1x1 Conv라고 불리는 filter, 주로 기존의 matrix의 결과를 논리적으로 다시 shuffle해서 봅아내는 것을 목적
 - Channel수를 줄이거나 늘리는 목적으로도 많이 쓰임
 
