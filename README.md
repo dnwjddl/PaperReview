@@ -57,3 +57,9 @@ https://arxiv.org/abs/1911.09070v4
 - 기존 NLP에서 성능이 좋았던 GPT를 pixel prediction에 도입
 - 자연어처리에서 문장을 하나의 sequenxe로 input을 주듯 본 논문에서는 이미지를 픽셀을 flatten하여 하나의 sequence로 만든 후 transformer에 input으로 넣는 구조를 사용
 - SoTA까진 아님
+
+### NMT by Jointly Learning To Align And Translate
+[paper](https://arxiv.org/abs/1409.0473)
+- Attention을 처음으로 제안한 논문
+- 어떤 word에 집중할지 알려주는 것이 alignment(=attention) 임
+
