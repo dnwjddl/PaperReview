@@ -56,3 +56,4 @@ https://arxiv.org/abs/1911.09070v4
 [paper](https://cdn.openai.com/papers/Generative_Pretraining_from_Pixels_V2.pdf)
 - 기존 NLP에서 성능이 좋았던 GPT를 pixel prediction에 도입
 - 자연어처리에서 문장을 하나의 sequenxe로 input을 주듯 본 논문에서는 이미지를 픽셀을 flatten하여 하나의 sequence로 만든 후 transformer에 input으로 넣는 구조를 사용
+- SoTA까진 아님
