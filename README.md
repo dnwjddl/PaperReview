@@ -51,3 +51,8 @@ https://arxiv.org/abs/1911.09070v4
 - BiFPN과 Model Scaling을 적용하여 COCO dataset에서 가장 높은 정확도를 달성하였고, 기존 연구들 대비 매우 적은 연산량(FLOPS)으로 비슷한 정확도를 달성하였다.
 
 
+# PaperReview_v2
+### Generative Pretraining from Pixels
+[paper](https://cdn.openai.com/papers/Generative_Pretraining_from_Pixels_V2.pdf)
+- 기존 NLP에서 성능이 좋았던 GPT를 pixel prediction에 도입
+- 자연어처리에서 문장을 하나의 sequenxe로 input을 주듯 본 논문에서는 이미지를 픽셀을 flatten하여 하나의 sequence로 만든 후 transformer에 input으로 넣는 구조를 사용
