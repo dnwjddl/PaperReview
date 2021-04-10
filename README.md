@@ -63,3 +63,7 @@ https://arxiv.org/abs/1911.09070v4
 - Attention을 처음으로 제안한 논문
 - 어떤 word에 집중할지 알려주는 것이 alignment(=attention) 임
 
+### Simple Copy-Paste is a Strong Data Augmentation Method for Instance Segmentation
+[paper](https://arxiv.org/pdf/2012.07177v1.pdf)
+- 두 의 이미지에서 한 장을 source, 나머지 한 장을 target으로 하여 source 이미지 내 객체들의 부분집합을 선택해 target 이미지에 붙여 넣음으로써 어렵고, 새롭고 이미지 데이터셋을 만들 수 있음
+- 코드 이식성이 좋아서 쉽게 다른 모델을 사용할 때 data augmentation 적용할 수 있으며 여러 실험을 진행해 본 결과 object detection, instance segmentation, semantic segmentation, self-supervised learning 성능에 우수
