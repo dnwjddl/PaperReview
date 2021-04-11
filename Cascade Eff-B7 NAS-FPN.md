@@ -28,3 +28,7 @@ EfficientNet-B7 Backbone과 NAS-FPN architeture를 사용해서 COCO test-dev �
 
 - Large Scale Jittering
 
+
+- Object Detection
+
+기본 연구는 instance segmentation을 위해 진행 -> Instance를 복사하면서 해당 객체의 bounding box 정보고 함께 복사하면서 Object Deteciton에도 큰 성능향상
