@@ -39,5 +39,5 @@ EfficientNet-B7 Backbone과 NAS-FPN architeture를 사용해서 COCO test-dev �
 ### Conclusion
 - Copy-Paste data augmentation mehod is very effective and robust
 - 간단하면서도 좋은 코드 이식성, 그리고 training cost, inference time 증가 없는 방법임
-- Selg training 에도 unlabeled images을 통합하는데 유용하고 성공적임을 확인
+- Self training 에도 unlabeled images을 통합하는데 유용하고 성공적임을 확인
 - instance segmentation task에서 copy-paste가 기본적으로 사용되는 방법이 
