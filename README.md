@@ -50,6 +50,9 @@ https://arxiv.org/abs/1911.09070v4
 - 기존 EfficientNet의 저자들이 속한 Google Brain팀에서 쓴 논문으로 EfficientNet은 Image Classification문제를 타겟으로 논문을 작성하였다면, Efficient Det은 - - Object Detection 문제를 타겟으로 논문을 작성하였습니다.
 - BiFPN과 Model Scaling을 적용하여 COCO dataset에서 가장 높은 정확도를 달성하였고, 기존 연구들 대비 매우 적은 연산량(FLOPS)으로 비슷한 정확도를 달성하였다.
 
+### SNIPER: Efficient Multi-scale Training
+[paper](https://arxiv.org/pdf/1805.09300v3.pdf)
+
 
 # PaperReview_v2
 ### Generative Pretraining from Pixels
