@@ -32,3 +32,12 @@ EfficientNet-B7 Backbone과 NAS-FPN architeture를 사용해서 COCO test-dev �
 - Object Detection
 
 기본 연구는 instance segmentation을 위해 진행 -> Instance를 복사하면서 해당 객체의 bounding box 정보고 함께 복사하면서 Object Deteciton에도 큰 성능향상
+
+![image](https://user-images.githubusercontent.com/72767245/114293421-dc032200-9ad0-11eb-8a00-8d016447ffda.png)
+
+
+### Conclusion
+- Copy-Paste data augmentation mehod is very effective and robust
+- 간단하면서도 좋은 코드 이식성, 그리고 training cost, inference time 증가 없는 방법임
+- Selg training 에도 unlabeled images을 통합하는데 유용하고 성공적임을 확인
+- instance segmentation task에서 copy-paste가 기본적으로 사용되는 방법이 
