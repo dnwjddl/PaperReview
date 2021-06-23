@@ -85,3 +85,28 @@ https://arxiv.org/abs/1911.09070v4
 - YOLACT: Real-time Instance Segmentation, ICCV2019
 - MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications, arXiv 2017
 - CONVOLUTIONAL NEURAL NETWORKS WITH LOWRANK REGULARIZATION, ICLR2016
+
+# Generative Modeling
+## Generative Modeling
+- Generative adversarial network, NIPS 2014
+- Auto-Encoding Variational Bayes, arXiv 2014
+- Density estimation using Real NVP, ICLR 2017
+- Neural Ordinary Differential Equations, NeurIPS 2018 (continuous normalizing flow, CNF)
+- Large Scale GAN Training for High Fidelity Natural Image Synthesis, ICLR 2019
+- Denoising diffusion probabilistic models, NeurIPS 2020
+- (Optional) Glow: Generative Flow with Invertible 1x1 Convolutions, NeurIPS 2018
+- (Optional) Score-based Generative Modeling by Diffusion Process, ICLR 2021
+- (Optional) How to Train Your Energy-Based Models, arXiv 2021
+- (Optional) Wasserstein Generative Adversarial Networks, ICML 2017
+- (Optional) f-GAN: Training Generative Neural Samplers using Variational Divergence Minimization, NIPS 2016
+- (Optional) Triple Generative Adversarial Nets, NIPS 2017
+
+## Conditional generative modeling
+- Image-to-Image Translation with Conditional Adversarial Nets, CVPR
+- Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks, ICCV 2017
+- Semantic Image Synthesis with Spatially-Adaptive Normalization, CVPR 2019
+- Few-Shot Adversarial Learning of Realistic Neural Talking Head Models, ICCV 2019
+- (Optional) Vid2Game: Controllable Characters Extracted from Real-World Videos, ICLR 2020
+
+## Perceptual metric
+- On Buggy Resizing Libraries and Surprising Subtleties in FID Calculation, arXiv 2021
