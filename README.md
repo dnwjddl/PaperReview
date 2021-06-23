@@ -70,3 +70,18 @@ https://arxiv.org/abs/1911.09070v4
 [paper](https://arxiv.org/pdf/2012.07177v1.pdf)
 - 두 의 이미지에서 한 장을 source, 나머지 한 장을 target으로 하여 source 이미지 내 객체들의 부분집합을 선택해 target 이미지에 붙여 넣음으로써 어렵고, 새롭고 이미지 데이터셋을 만들 수 있음
 - 코드 이식성이 좋아서 쉽게 다른 모델을 사용할 때 data augmentation 적용할 수 있으며 여러 실험을 진행해 본 결과 object detection, instance segmentation, semantic segmentation, self-supervised learning 성능에 우수
+
+# Human Mesh
+## 3D human mesh recovery
+- SMPL: A Skinned Multi-Person Linear Model, ACM Trans. Graphics (Proc. SIGGRAPH Asia), 2015
+- Keep it {SMPL}: Automatic Estimation of {3D} Human Pose and Shape from a Single Image, ECCV 2016
+- End-to-end Recovery of Human Shape and Pose, CVPR 2018
+- VIBE: Video Inference for Human Body Pose and Shape Estimation, CVPR 2020
+- End-to-End Human Pose and Mesh Reconstruction with Transformers, CVPR 2021
+
+## Models and Light-weight models
+- Mask R-CNN, ICCV 2017
+- Focal Loss for Dense Object Detection, ICCV 2017 (RetinaNet)
+- YOLACT: Real-time Instance Segmentation, ICCV2019
+- MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications, arXiv 2017
+- CONVOLUTIONAL NEURAL NETWORKS WITH LOWRANK REGULARIZATION, ICLR2016
