@@ -1,7 +1,7 @@
 # PaperReview_v1 
 computer vision paper review
 
-## Image Classification
+## Image Classification 
 ### An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ICLR 2021 : Open review)
 - NLP분야에서 핫한 모델인 Transformer를 vision task에 적용한 논문
 - Transformer을 거의 그대로 image classification task에 이용한 것으로, ImangeNet/ImageNet-ReaL/CIFAR-100/VTAB SoTA모델과 거의 비슷한 정도 혹은 그 이상을 성능을 달성
