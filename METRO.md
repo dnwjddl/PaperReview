@@ -44,7 +44,7 @@
 
 이 분야의 work는 **두가지 범주**로 나눌 수 있음
 
-  1. SMPL과 같은 **parametric model**를 이용
+  1. ```SMPL```과 같은 **parametric model**를 이용
     - shape와 pose coefficients를 예측하도록 학습되는데 environment variations에 robust 함
     - But, parametric model를 construct하는 exemplars에 pose와 shape space가 제한됨
       - 이것을 극복하기 위한 두번째 방법이 고안
