@@ -42,16 +42,55 @@
 - 그러나 complex articulated motion과 occlusion으로 인해 challenging 함
 
 
-이 분야의 work는 **두가지 범주**로 나눌 수 있음
+### 이 분야의 work는 **두가지 범주**로 나눌 수 있음
 
-  1. ```SMPL```과 같은 **parametric model**를 이용
-    - shape와 pose coefficients를 예측하도록 학습되는데 environment variations에 robust 함
-    - But, parametric model를 construct하는 exemplars에 pose와 shape space가 제한됨
-      - 이것을 극복하기 위한 두번째 방법이 고안
+#### 1. ```SMPL```과 같은 **parametric model**를 이용
+- **강점**: shape와 pose coefficients를 예측하도록 학습되는데 environment variations에 robust 함
+- **단점**: pose와 shape space가 parametric model을 구축하는데 사용되는 limited exemplars에 의해 제한된다는 것
+  - 이것을 극복하기 위한 두번째 방법이 고안
+
+#### 2. **Graph convolution neural network(GCNN)나 1D heatmap**를 이용
+graph convolutional neural network(to model neighborhood vertex-vertex interactions)  
+1D heatmap(to regress vertex coordinates)
+
+- **단점**: non-local vertex-vertex interaction을 모델하는데 효과적이지 않음
 
 
-  2. **Graph convolution neural network(GCNN)나 1D heatmap**를 이용해 인접한 vertex-vertex interaction을 모델링함
-    - non-local vertex-vertex interaction을 모델하는데 효과적이지 않음
+---
+
+- 선행 연구에서 다른 body part(ex. hand-foot)에 소속된 non-local vertices 사이에 strong correlation이 있다고 보여짐
+- [Computer Graphics & Robotics] inverse kinetics techniques(역운동학 기술) 는 hand tip과 같은 end effector의 position을 받은 articulated figure의 Internal joint position을 estimate 하도록 개발됨
+
+---
+
+### 필요성
+- 우리는 short range와 long range를 포함하여 ```body joints와 mesh vertices 사이의 correlation을 학습```하는 것이 challenging한 pose와 occlusions를 핸들링하는데 필요하다 생각
+
+### METRO 모델
+- 본 논문에서는 **global vertex-vertex interactions**를 모델링하는 심플하지만 효과적인 프레임워크 제시 -> **주구성요소는 transformer**임
+
+
+### Transformer(자연어 처리)
+- 최근의 연구는 transformer의 **self-attention mechanism** 덕분에 다양한 task의 성능향상을 보여줌
+- transformer은 특히 input과 output사이의 거리 상관없이 **dependencies(or interactions)를 모델링**하는데 효과적
+- transformer는 relevant token을 soft-search할 수 있고, 중요한 features에 기반하여 예측함
+
+---
+
+### 본 논문
+- (progressive dimension reduction을 사용하는) multi-layer transformer encoder 인 ```METRO```제안
+  - input image로부터 **3D body joint**와 **mesh vertices**를 동시적으로 reconstruct함
+- ```transformer encoder architecture```에 **```masked vertex modeling object````**를 추가하여 joints와 vertices사이의 interaction을 강화함
+- figure1과 같이 ```METRO```는 joints와 mesh vertices사이의 short-range와 long-range interaction를 발견하도록 학습하여 큰 pose변화와 occlusion을 가진 3D human pose를 reconstruct하는데 도움이 되도록 함
+
+### 실험 결과
+- ```METRO```가 vertex-vertex와 vertex-joint interaction을 하는데 효과적이고, human mesh reconstruction에 있어서 large margin을 두고 이전 연구를 뛰어넘는 것을 보여줌
+- METRO는 single image로부터 3D human pose와 mesh reconstruction을 jointly learn하는데에 **transformer encoder**를 사용한 첫번째 시도
+- 또한, METRO는 input image로부터 3D hand를 reconstruct하는 등 다른 3D mesh를 에측하는데 쉽게 적용되는 general framework
+
+
+
+
 
 
 ## Related Works
