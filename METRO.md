@@ -1,6 +1,6 @@
 # End-to-End Human Pose and Mesh Reconstruction with Transformers
 
-## Abstract
+# Abstract
 
 - **```METRO(Mesh TRansfOrmer)```** 이라는 새로운 방법 제시(single image로 3D human pose&mesh vertices 재구성)
 - **transformer encoder**를 이용해 vertex-vertex 와 vertex-joint **iteraction**를 jointly model함
@@ -23,7 +23,7 @@
 - Human3.6M과 3DPW 데이터셋에서 human mesh reconstruction에 대한 SOTA 결과를 냄
 - 3D human reconstruction에서 현재 SOTA인 FreiHAND 데이터셋을 능가하는 범용성을 보임
 
-## Introduction
+# Introduction
 
 ### CONTRIBUTION [4가지]
 - NEW transformer-based method(METRO)
