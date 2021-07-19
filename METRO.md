@@ -91,11 +91,32 @@ graph convolutional neural network(to model neighborhood vertex-vertex interacti
 
 
 
-
-
 ## Related Works
 ### Human Mesh Reconstruction(HMR)
 - 3D human body shape를 reconstruct하는 Task
+- 초기 연구는 다양한 센서를 이용해서 reconstruction을 수행함
+  - 점차 효과적이고 간편한 단안 카메라 세팅을 이용하려함
+- But, single image로부터의 HMR은 pose variation, occlusions, limited 3D training data로 어려움
+
+1. 이전 연구들(SMPL, STAR, MANO)등의 사전학습된 parametric human models를 제안함
+- HMR에 대한 parametric model의 pose와 shape coefficient를 estimate함
+- 그러나 input image로부터 바로 pose와 shape coefficients를 regress하는 것은 어렵기 때문에 human skeletons 나 segmentation map과 같은 human body를 다루기도 함
+
+2. 반면에 parametric human model을 채택하는 것 대신, human body를 3D mesh, volumetric space, occupancy field등을 이용해서 represent하기도함
+- 그 중 GraphCMR은 3D mesh vertices를 graph convolutional neural networks를 이용해 regress하는 것을 목표로 함
+- 더 최근의 pose2Mesh는 GCNN을 이용한 cascaded model임
+- GCNN based method는 pre-specified mesh topology를 이용하여 neighborhood vertex-vertex interactions를 모델링하도록 디자인했는데 longer range interactions를 모델링하는데 덜 효과적임
+
+
+---
+
+
+반면에 METRO models는 어떠한 mesh topology에 국한되지 않고 joints와 mesh vertices사이의 global interactions를 모델링 가능
+
+
+---
+
+
 
 ### Attentions and Transformers
 
