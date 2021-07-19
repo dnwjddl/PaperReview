@@ -35,14 +35,23 @@
 - METRO : hands (FreiHAND 리더보드에서 1위) - Generalization
   - 다른 타입의 3D mesh를 예측할 수 있음
 
+---
+
 
 - VR, 스포츠 모션 분석, 신경퇴행성 진단 분석 등에서 3D human pose/mesh reconstruction의 관심이 높아짐
 - 그러나 complex articulated motion과 occlusion으로 인해 challenging 함
-- 이 분야의 work는 두가지
-  - SMPL과 같은 **parametric model**를 이용
+
+
+이 분야의 work는 **두가지 범주**로 나눌 수 있음
+
+  1. SMPL과 같은 **parametric model**를 이용
     - shape와 pose coefficients를 예측하도록 학습되는데 environment variations에 robust 함
     - But, parametric model를 construct하는 exemplars에 pose와 shape space가 제한됨
       - 이것을 극복하기 위한 두번째 방법이 고안
+
+
+  2. **Graph convolution neural network(GCNN)나 1D heatmap**를 이용해 인접한 vertex-vertex interaction을 모델링함
+    - non-local vertex-vertex interaction을 모델하는데 효과적이지 않음
 
 
 ## Related Works
